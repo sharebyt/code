@@ -19,6 +19,8 @@ min-width: min-content;
 </style>
 </head>
 <body>
+
+
 <span item lbg2>
 <cont item-left>
 <p l id="output">Run to start Log.</p>
@@ -27,6 +29,19 @@ min-width: min-content;
 <i r mid class="fa-solid fa-trash"></i></div>
 
 </span>
+
+<span item-right small-pt small-pr id="precode">
+
+    <a bdr="0" ybg2 y mono onclick="
+    addCode('out(a);', 'Output');">out</a>
+    <a bdr="0" bbg l mono onclick="
+    addCode(`let n${ran(9e2)} = ${ran(9e2)};`, 'Value');">var</a>
+    <a bdr="0" rbg2 r mono onclick="
+    addCode('condition ? if : else;', 'System');">If</a>
+    <a bdr="0" rbg2 r mono onclick="
+    addCode('funcname = () => {};', 'System');">Function</a>
+    
+    </span>
 
 <div small-p item id="codeContainer" >
 <textarea lbg2 l flex small-p 
@@ -39,19 +54,6 @@ class="code-block" draggable="true"
 </div>
 
 <cont foot lbg2>
-
-<span row id="precode">
-
-<a bdr="0" ybg2 y mono onclick="
-addCode('out(a);', 'Output');">out</a>
-<a bdr="0" bbg l mono onclick="
-addCode(`let n${ran(9e2)} = ${ran(9e2)};`, 'Value');">var</a>
-<a bdr="0" rbg2 r mono onclick="
-addCode('condition ? if : else;', 'System');">If</a>
-<a bdr="0" rbg2 r mono onclick="
-addCode('funcname = () => {};', 'System');">Function</a>
-
-</span>
 
 <a bbg id="runCode"><i mid l  class="fa-solid fa-play"></i></a>
 <a gbg2 onmousedown="addCode('Custom Code?')">
