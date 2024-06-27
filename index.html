@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://actwu.github.io/neu/n.js"></script>
+
+<script>
+setViewport();
+setSEO("B Code", "B code a Code Block for Coding Better.", "code, editor, ai", "https://www.example.com/page-url");
+addNeu();
+</script>
+</head>
+<body>
+<cont neu small-m bdr="25">
+<p m id="output">Run to start Log.</p>
+</cont>
+<cont id="codeContainer" >
+  
+        <textarea glass small-p m class="code-block" draggable="true">let a = 5;</textarea>
+        <textarea glass small-p m class="code-block" draggable="true">let b = 10;</textarea>
+        <textarea glass small-p m class="code-block" draggable="true">console.log(a + b);</textarea>
+    
+</cont>
+
+    
+
+<cont foot>
+  <div rbg2 bdr="25" id="trashcan"><i r mid class="fa-solid fa-trash"></i></div>
+<cont glass row id="precode">
+
+        <a glass m onclick="addCode('alert(a);');">Alert</a>
+        <a glass m onclick="addCode('let name = value;');">Variable</a>
+        <a glass m onclick="addCode('condition ? if : else;');">If</a>
+
+ <a glass m onclick="addCode('funcname = () => {};');">Function</a>
+
+    </cont>
+
+    <a bdr="25" lbg2 id="runCode"><i mid l  class="fa-solid fa-play"></i></a>
+    <a gbg2 bdr="25" mid-p id="addBlock"><i mid g class="fa-solid fa-plus"></i></a>
+
+  <a rbg bdr="25" mid-p onclick="let code = '';
+    document.querySelectorAll('.code-block').forEach(block => {
+        code += block.value + '\n';
+    });
+    try {
+        newFile({'new.js', 'text/plain', code})
+    } catch (err) { }
+});
+
+
+
+"><i mid r2 class="fa-solid fa-heart"></i></a>
+</cont>
+
+<script>
+document.querySelectorAll('.code-block').forEach(block => {
+    block.addEventListener('dragstart', dragStart);
+    block.addEventListener('dragend', dragEnd);
+});
+
+let draggedBlock = null;
+
+function dragStart(e) {
+    draggedBlock = e.target;
+    e.dataTransfer.setData('text/plain', e.target.value);
+    setTimeout(() => {
+        e.target.style.display = 'none';
+    }, 0);
+}
+
+function dragEnd(e) {
+    e.target.style.display = 'block';
+    draggedBlock = null;
+}
+
+document.getElementById('codeContainer').addEventListener('dragover', dragOver);
+document.getElementById('codeContainer').addEventListener('drop', drop);
+
+function dragOver(e) {
+    e.preventDefault();
+}
+
+function drop(e) {
+    e.preventDefault();
+    const codeContainer = document.getElementById('codeContainer');
+    const code = e.dataTransfer.getData('text/plain');
+    const newBlock = document.createElement('textarea');
+    newBlock.setAttribute('glass', '');
+    newBlock.setAttribute('small-p', '');
+    newBlock.setAttribute('m', '');
+    newBlock.className = 'code-block';
+    newBlock.draggable = true;
+    newBlock.value = code;
+    newBlock.addEventListener('dragstart', dragStart);
+    newBlock.addEventListener('dragend', dragEnd);
+    
+    if (e.target === codeContainer) {
+        codeContainer.appendChild(newBlock);
+    } else {
+        e.target.insertAdjacentElement('afterend', newBlock);
+    }
+    if (draggedBlock) {
+        draggedBlock.remove();
+    }
+}
+
+document.getElementById('runCode').addEventListener('click', () => {
+    let code = '';
+    document.querySelectorAll('.code-block').forEach(block => {
+        code += block.value + '\n';
+    });
+    try {
+        document.getElementById('output').innerText = eval(code);
+    } catch (err) {
+        document.getElementById('output').innerText = 'Error: ' + err.message;
+    }
+});
+
+document.getElementById('addBlock').addEventListener('click', () => {
+    const newBlock = document.createElement('textarea');
+    newBlock.setAttribute('glass', '');
+    newBlock.setAttribute('small-p', '');
+    newBlock.setAttribute('m', '');
+    newBlock.className = 'code-block';
+    newBlock.draggable = true;
+    newBlock.value = 'New code block';
+    newBlock.addEventListener('dragstart', dragStart);
+    newBlock.addEventListener('dragend', dragEnd);
+    document.getElementById('codeContainer').appendChild(newBlock);
+});
+
+function addCode(code) {
+    const newBlock = document.createElement('textarea');
+    newBlock.setAttribute('glass', '');
+    newBlock.setAttribute('small-p', '');
+    newBlock.setAttribute('m', '');
+    newBlock.className = 'code-block';
+    newBlock.draggable = true;
+    newBlock.value = code;
+    newBlock.addEventListener('dragstart', dragStart);
+    newBlock.addEventListener('dragend', dragEnd);
+    document.getElementById('codeContainer').appendChild(newBlock);
+}
+
+const trashcan = document.getElementById('trashcan');
+
+trashcan.addEventListener('dragover', e => {
+    e.preventDefault();
+});
+
+trashcan.addEventListener('drop', e => {
+    e.preventDefault();
+    const code = e.dataTransfer.getData('text/plain');
+    document.querySelectorAll('.code-block').forEach(block => {
+        if (block.value === code) {
+            block.remove();
+        }
+    });
+    trashcan.style.backgroundColor = 'red';
+});
+</script>
+</body>
+</html>
