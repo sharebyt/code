@@ -83,6 +83,7 @@ draggedBlock = e.target;
 e.dataTransfer.setData('text/plain', e.target.value);
 setTimeout(() => {
 e.target.style.opacity = "50%";
+e.target.setAttribute("disabled","")
 }, 0);
 }
 
@@ -108,6 +109,8 @@ const newBlock = draggedBlock.cloneNode(true);
 newBlock.style.display = 'block';
 newBlock.value = code;
 newBlock.style.opacity = "100%";
+
+newBlock.removeAttribute("disabled","")
 newBlock.addEventListener('dragstart', dragStart);
 newBlock.addEventListener('dragend', dragEnd);
 
