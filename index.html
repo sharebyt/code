@@ -27,21 +27,22 @@ min-width: min-content;
 </cont>
 <div rbg2 item small-p mid-px id="trashcan">
 <i r mid class="fa-solid fa-trash"></i></div>
-
 </span>
 
 <span item-right small-pt small-pr id="precode">
 
-    <a bdr="0" ybg2 y mono onclick="
-    addCode('out(a);', 'Output');">out</a>
-    <a bdr="0" bbg l mono onclick="
-    addCode(`let n${ran(9e2)} = ${ran(9e2)};`, 'Value');">var</a>
-    <a bdr="0" rbg2 r mono onclick="
-    addCode('condition ? if : else;', 'System');">If</a>
-    <a bdr="0" rbg2 r mono onclick="
-    addCode('funcname = () => {};', 'System');">Function</a>
-    
-    </span>
+<a bdr="0" ybg2 y mono onclick="
+addCode('out(a);', 'Output');">out</a>
+<a bdr="0" ybg2 y mono onclick='
+addCode(`"Text"`, "Output");'>log</a>
+<a bdr="0" bbg l mono onclick="
+addCode(`let n${ran(9e2)} = ${ran(9e2)};`, 'Value');">var</a>
+<a bdr="0" rbg2 r mono onclick="
+addCode('condition ? if : else;', 'System');">If</a>
+<a bdr="0" rbg2 r mono onclick="
+addCode('funcname = () => {};', 'System');">Function</a>
+
+</span>
 
 <div small-p item id="codeContainer" >
 <textarea lbg2 l flex small-p 
@@ -81,12 +82,12 @@ function dragStart(e) {
 draggedBlock = e.target;
 e.dataTransfer.setData('text/plain', e.target.value);
 setTimeout(() => {
-e.target.style.display = 'none';
+e.target.style.opacity = "50%";
 }, 0);
 }
 
 function dragEnd(e) {
-e.target.style.display = 'block';
+e.target.style.opacity = "100%";
 draggedBlock = null;
 }
 
@@ -99,12 +100,14 @@ e.preventDefault();
 
 function drop(e) {
 e.preventDefault();
+
 const codeContainer = document.getElementById('codeContainer');
 const code = e.dataTransfer.getData('text/plain');
 
 const newBlock = draggedBlock.cloneNode(true);
 newBlock.style.display = 'block';
 newBlock.value = code;
+newBlock.style.opacity = "100%";
 newBlock.addEventListener('dragstart', dragStart);
 newBlock.addEventListener('dragend', dragEnd);
 
