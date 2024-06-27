@@ -19,42 +19,44 @@ min-width: min-content;
 </style>
 </head>
 <body>
-<cont neu small-m bdr="25">
-<p m id="output">Run to start Log.</p>
+<span item lbg2>
+<div rbg2 item small-p mid-px id="trashcan">
+<i r mid class="fa-solid fa-trash"></i></div>
+<cont item>
+<p l id="output">Run to start Log.</p>
 </cont>
-<div small-p row id="codeContainer" >
+<cont item-right></cont>
+</span>
 
-<textarea lbg2 l bdr="25" flex small-p 
+<div small-p item id="codeContainer" >
+<textarea lbg2 l flex small-p 
 class="code-block" draggable="true"
 >let a = 5;</textarea>
 
-<textarea rbg2 r bdr="25" flex small-p m 
+<textarea rbg2 r flex small-p m 
 class="code-block" draggable="true"
 >a >= 5 ? alert("ow"): "proceed";</textarea>
 </div>
 
-<cont foot>
-<div rbg2 bdr="25" id="trashcan">
-<i r mid class="fa-solid fa-trash"></i></div>
-<cont bbg2 small-p row id="precode">
+<cont foot lbg2>
 
-<a ybg2 y mono onclick="
+<span row id="precode">
+
+<a bdr="0" ybg2 y mono onclick="
 addCode('out(a);', 'Output');">out</a>
-<a lbg2 l mono onclick="
+<a bdr="0" bbg l mono onclick="
 addCode(`let n${ran(9e2)} = ${ran(9e2)};`, 'Value');">var</a>
-<a rbg2 r mono onclick="
+<a bdr="0" rbg2 r mono onclick="
 addCode('condition ? if : else;', 'System');">If</a>
-
-<a rbg2 r mono onclick="
+<a bdr="0" rbg2 r mono onclick="
 addCode('funcname = () => {};', 'System');">Function</a>
 
-</cont>
+</span>
 
-<a bdr="25" lbg2 id="runCode"><i mid l  class="fa-solid fa-play"></i></a>
-<a bdr="25" gbg2 onmousedown="addCode('Custom Code?')">
+<a bbg id="runCode"><i mid l  class="fa-solid fa-play"></i></a>
+<a gbg2 onmousedown="addCode('Custom Code?')">
 <i mid g  class="fa-solid fa-add"></i></a>
-
-<a rbg bdr="25" mid-p onclick="let code = '';
+<a rbg mid-p onclick="let code = '';
 document.querySelectorAll('.code-block').forEach(block => {
 code += block.value + '\n';
 });
@@ -129,7 +131,7 @@ document.getElementById('output').innerText = 'Error: ' + err.message;
 
 function addCode(code, type) {
 const newBlock = document.createElement('textarea');
-newBlock.setAttribute('bdr', '25')
+
 if (type == "Output") {
 newBlock.setAttribute('ybg2', '')
 newBlock.setAttribute('y', '')
