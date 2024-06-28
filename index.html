@@ -108,14 +108,12 @@ draggedBlock = e.target;
 e.dataTransfer.setData('text/plain', e.target.value);
 setTimeout(() => {
 e.target.style.opacity = "50%";
-e.target.setAttribute("disabled", "")
 }, 0);
 }
 
 function dragEnd(e) {
 e.target.style.opacity = "100%";
 
-e.target.removeAttribute("disabled");
 draggedBlock = null;
 }
 
