@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://actwu.github.io/neu/n.js"></script>
 <title>B Code</title>
 <meta name="description" content="B code a Code Block for Coding Better.">
@@ -19,8 +22,18 @@ height: 0.2in;
 width: min-content;
 min-width: min-content;
 }
+
+[dllist] a:hover, [dllist] a {
+animation: none;
+padding: 1em 1em;
+width: 1em;
+display: flex;
+justify-content: center;
+place-content: center;
+}
 </style>
 </head>
+
 <body>
 
 <span lbg2 style="padding-top: 0.1in;" item small-px>
@@ -29,8 +42,8 @@ min-width: min-content;
 </cont>
 <span item lbg2>
 
-<span item style="padding: 0.1in;" tbdr="25"  bbg>
-<a lbg2 mid-px id="runCode">
+<span small-p dllist item style="padding: 0.1in;" tbdr="25" bbg>
+<a lbg2 id="runCode">
 <i l class="fa-solid fa-lg fa-play"></i></a>
 <a lbg2 onmousedown=" code = '';
 dda = code.target; 
@@ -40,46 +53,44 @@ code += block.value + '\n';
 newFile({filename:`${ran(9e9)}.js`, filetype:'javascript/js', data: code})
 
 "><i l class="fa-solid fa-lg fa-cloud-download"></i></a>
+<a lbg2
+onclick="document.querySelector('#precode').classList.toggle('hide')">
+<i l class="fa-solid fa-lg fa-code"></i></a>
 
 <a gbg onmousedown="addCode('Custom Code?')">
 <i g2 class="fa-solid fa-lg fa-add"></i></a>
 
-<div rbg2 small-p bdr="25" mid-px id="trashcan">
-<i r class="fa-solid fa-lg fa-trash"></i></div>
+<div rbg2 small-px style="padding: 0.5em 1em;" bdr="25" id="trashcan">
+<i r class="fa-solid fa-lg fa-trash"></i>
+</div>
 </span>
 </span>
 </span>
 
-<div small-p mid-pb item id="codeContainer" >
+<cont class="hide" row bdr="25" id="precode">
 
-<cont row bdr="25" small-p lbg2
-small-pt small-pr id="precode">
-
-<a bdr="25" ybg y2 mono onmousedown="
+<a bdr="25" ybg2 y mono onmousedown="
 addCode('out(a);', 'Output');">out</a>
-<a bdr="25" ybg y2 mono onmousedown='
+<a bdr="25" ybg2 y mono onmousedown='
 addCode(`"Text"`, "Output");'>log</a>
-<a bdr="25" lbg l2 mono onmousedown="
+<a bdr="25" lbg2 l mono onmousedown="
 addCode(`let n${ran(9e2)} = ${ran(9e2)};`, 'Value');">var</a>
-<a bdr="25" rbg r2 mono onmousedown="
+<a bdr="25" rbg2 r mono onmousedown="
 addCode('condition ? if : else;', 'System');">If</a>
-<a bdr="25" rbg r2 mono onmousedown="
+<a bdr="25" rbg2 r mono onmousedown="
 addCode('funcname = () => {};', 'System');">Function</a>
 
 </cont>
-        
-<textarea lbg2 l flex small-p 
-class="code-block" draggable="true"
->let a = 5;</textarea>
+<div small-p mid-pb item id="codeContainer">
 
-<textarea rbg2 r flex small-p m 
-class="code-block" draggable="true"
->a >= 5 ? alert("ow"): "proceed";</textarea>
+<textarea lbg2 l flex small-p class="code-block" draggable="true">let a = 5;</textarea>
+
+<textarea rbg2 r flex small-p m class="code-block" draggable="true">a >= 5 ? alert("ow"): "proceed";</textarea>
 </div>
 
 <script>
 
-out = (data) => {alert(data)};
+out = (data) => { alert(data) };
 document.querySelectorAll('.code-block').forEach(block => {
 block.addEventListener('dragstart', dragStart);
 block.addEventListener('dragend', dragEnd)
@@ -92,7 +103,7 @@ draggedBlock = e.target;
 e.dataTransfer.setData('text/plain', e.target.value);
 setTimeout(() => {
 e.target.style.opacity = "50%";
-e.target.setAttribute("disabled","")
+e.target.setAttribute("disabled", "")
 }, 0);
 }
 
@@ -121,7 +132,7 @@ newBlock.style.display = 'block';
 newBlock.value = code;
 newBlock.style.opacity = "100%";
 
-newBlock.removeAttribute("disabled","")
+newBlock.removeAttribute("disabled", "")
 newBlock.addEventListener('dragstart', dragStart);
 newBlock.addEventListener('dragend', dragEnd);
 
@@ -218,4 +229,5 @@ tcon.setAttribute('r', '');
 });
 </script>
 </body>
+
 </html>
