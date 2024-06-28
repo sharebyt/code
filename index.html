@@ -45,6 +45,10 @@ place-content: center;
 <span small-p dllist item style="padding: 0.1in;" tbdr="25" bbg>
 <a lbg2 id="runCode">
 <i l class="fa-solid fa-lg fa-play"></i></a>
+
+<span row lbg2 bdr="25">
+<a lbg2 onmousedown="openFile()">
+<i l class="fa-solid fa-lg fa-upload"></i></a>
 <a lbg2 onmousedown=" code = '';
 dda = code.target; 
 document.querySelectorAll('.code-block').forEach(block => {
@@ -53,6 +57,7 @@ code += block.value + '\n';
 newFile({filename:`${ran(9e9)}.js`, filetype:'javascript/js', data: code})
 
 "><i l class="fa-solid fa-lg fa-cloud-download"></i></a>
+</span>
 <a lbg2
 onclick="document.querySelector('#precode').classList.toggle('hide')">
 <i l class="fa-solid fa-lg fa-code"></i></a>
@@ -162,13 +167,13 @@ document.getElementById('output').innerText = 'Error: ' + err.message;
 function addCode(code, type) {
 const newBlock = document.createElement('textarea');
 
-if (type == "Output") {
+if (type == "Output" || type == 1) {
 newBlock.setAttribute('ybg2', '')
 newBlock.setAttribute('y', '')
-} else if (type == "Value") {
+} else if (type == "Value" || type == 2){
 newBlock.setAttribute('lbg2', '')
 newBlock.setAttribute('l', '')
-} else if (type == "System") {
+} else if (type == "System"|| type == 3) {
 newBlock.setAttribute('rbg2', '')
 newBlock.setAttribute('r', '')
 } else {
@@ -227,6 +232,35 @@ tcon.removeAttribute('r2');
 tcon.setAttribute('r', '');
 });
 });
+
+function openFile() {
+const input = document.createElement('input');
+input.type = 'file';
+input.style.visibility = 'hidden';
+document.body.append(input);
+
+input.addEventListener('change', (event) => {
+const file = event.target.files[0];
+const reader = new FileReader();
+
+reader.onload = () => {
+const fileData = reader.result;
+const codeLines = fileData.split('\n');
+
+const codeContainer = document.getElementById('codeContainer');
+codeContainer.innerHTML = '';
+
+codeLines.forEach(line => {
+    addCode(line, ran(3))
+});
+};
+
+reader.readAsText(file);
+});
+
+input.click();
+}
+
 </script>
 </body>
 
