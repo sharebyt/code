@@ -3,10 +3,13 @@
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://actwu.github.io/neu/n.js"></script>
-
+<title>B Code</title>
+<meta name="description" content="B code a Code Block for Coding Better.">
+<meta name="keywords" content="code, editor, ai">
+<link rel="canonical" href="https://www.example.com/page-url">
+<link rel="stylesheet" href="https://actwu.github.io/neu/n.css">
 <script>
 setViewport();
-setSEO("B Code", "B code a Code Block for Coding Better.", "code, editor, ai", "https://www.example.com/page-url");
 addNeu();
 </script>
 
@@ -20,31 +23,51 @@ min-width: min-content;
 </head>
 <body>
 
-
-<span item lbg2>
-<cont item-left>
+<span lbg2 style="padding-top: 0.1in;" item small-px>
+<cont item-left mid-px>
 <p l id="output">Run to start Log.</p>
 </cont>
-<div rbg2 item small-p mid-px id="trashcan">
-<i r mid class="fa-solid fa-trash"></i></div>
+<span item lbg2>
+
+<span item style="padding: 0.1in;" tbdr="25"  bbg>
+<a lbg2 mid-px id="runCode">
+<i l class="fa-solid fa-lg fa-play"></i></a>
+<a lbg2 onmousedown=" code = '';
+dda = code.target; 
+document.querySelectorAll('.code-block').forEach(block => {
+code += block.value + '\n';
+});
+newFile({filename:`${ran(9e9)}.js`, filetype:'javascript/js', data: code})
+
+"><i l class="fa-solid fa-lg fa-cloud-download"></i></a>
+
+<a gbg onmousedown="addCode('Custom Code?')">
+<i g2 class="fa-solid fa-lg fa-add"></i></a>
+
+<div rbg2 small-p bdr="25" mid-px id="trashcan">
+<i r class="fa-solid fa-lg fa-trash"></i></div>
+</span>
+</span>
 </span>
 
-<span item-right small-pt small-pr id="precode">
+<div small-p mid-pb item id="codeContainer" >
 
-<a bdr="0" ybg2 y mono onclick="
+<cont row bdr="25" small-p lbg2
+small-pt small-pr id="precode">
+
+<a bdr="25" ybg y2 mono onmousedown="
 addCode('out(a);', 'Output');">out</a>
-<a bdr="0" ybg2 y mono onclick='
+<a bdr="25" ybg y2 mono onmousedown='
 addCode(`"Text"`, "Output");'>log</a>
-<a bdr="0" bbg l mono onclick="
+<a bdr="25" lbg l2 mono onmousedown="
 addCode(`let n${ran(9e2)} = ${ran(9e2)};`, 'Value');">var</a>
-<a bdr="0" rbg2 r mono onclick="
+<a bdr="25" rbg r2 mono onmousedown="
 addCode('condition ? if : else;', 'System');">If</a>
-<a bdr="0" rbg2 r mono onclick="
+<a bdr="25" rbg r2 mono onmousedown="
 addCode('funcname = () => {};', 'System');">Function</a>
 
-</span>
-
-<div small-p item id="codeContainer" >
+</cont>
+        
 <textarea lbg2 l flex small-p 
 class="code-block" draggable="true"
 >let a = 5;</textarea>
@@ -54,26 +77,12 @@ class="code-block" draggable="true"
 >a >= 5 ? alert("ow"): "proceed";</textarea>
 </div>
 
-<cont foot lbg2>
-
-<a bbg id="runCode"><i mid l  class="fa-solid fa-play"></i></a>
-<a gbg2 onmousedown="addCode('Custom Code?')">
-<i mid g  class="fa-solid fa-add"></i></a>
-<a rbg mid-p onclick="let code = '';
-document.querySelectorAll('.code-block').forEach(block => {
-code += block.value + '\n';
-});
-newFile({filename:ran(9e9), filetype:'text/plain', code})
-
-"><i mid r2 class="fa-solid fa-heart"></i></a>
-</cont>
-
 <script>
 
 out = (data) => {alert(data)};
 document.querySelectorAll('.code-block').forEach(block => {
 block.addEventListener('dragstart', dragStart);
-block.addEventListener('dragend', dragEnd);
+block.addEventListener('dragend', dragEnd)
 });
 
 let draggedBlock = null;
@@ -89,6 +98,8 @@ e.target.setAttribute("disabled","")
 
 function dragEnd(e) {
 e.target.style.opacity = "100%";
+
+e.target.removeAttribute("disabled");
 draggedBlock = null;
 }
 
