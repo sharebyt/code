@@ -9,7 +9,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 <title>B Code</title>
 <meta name="description" content="B code a Code Block for Coding Better.">
 <meta name="keywords" content="code, editor, ai">
-<link rel="canonical" href="https://www.example.com/page-url">
+<link rel="canonical" href="">
 <link rel="stylesheet" href="https://actwu.github.io/neu/n.css">
 <script>
 setViewport();
@@ -81,9 +81,11 @@ addCode(`"Text"`, "Output");'>log</a>
 <a bdr="25" lbg2 l mono onmousedown="
 addCode(`let n${ran(9e2)} = ${ran(9e2)};`, 'Value');">var</a>
 <a bdr="25" rbg2 r mono onmousedown="
-addCode('condition ? if : else;', 'System');">If</a>
+addCode(`conditon && 'result'`, `System`);">If</a>
 <a bdr="25" rbg2 r mono onmousedown="
-addCode('funcname = () => {};', 'System');">Function</a>
+addCode(`|| 'else'`, `System`);">Else</a>
+<a bdr="25" rbg2 r mono onmousedown="
+addCode(`funcname = () => {};`, `System`);">Function</a>
 
 </cont>
 <div small-p mid-pb item id="codeContainer">
@@ -93,6 +95,7 @@ addCode('funcname = () => {};', 'System');">Function</a>
 <textarea rbg2 r flex small-p m class="code-block" draggable="true">a >= 5 ? alert("ow"): "proceed";</textarea>
 </div>
 
+<script src="https://actwu.github.io/neu/n.js"></script>
 <script>
 
 out = (data) => { alert(data) };
@@ -249,7 +252,7 @@ const codeContainer = document.getElementById('codeContainer');
 codeContainer.innerHTML = '';
 
 codeLines.forEach(line => {
-    addCode(line, ran(3))
+addCode(line, ran(3))
 });
 };
 
