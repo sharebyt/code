@@ -71,7 +71,11 @@ newFile({filename:`${ran(9e9)}.html`, filetype:'javascript/js', data: code})
 onclick="document.querySelector('#precode').classList.toggle('hide')">
 <i m class="fa-solid fa-lg fa-shapes"></i></a>
 
-<div rbg2 mid-p bdr="25" id="trashcan">
+    <a bbg2
+onclick="document.querySelector('#stu').classList.toggle('hide')">
+<i m class="fa-solid fa-lg fa-gear"></i></a>
+
+<div rbg2 mid-p hide bdr="25" id="trashcan">
 <i r class="fa-solid fa-lg fa-trash"></i>
 </div>
 </span>
@@ -101,6 +105,7 @@ addCode(`</span>`, `System`);">Span Ending</a>
 </cont>
 <div l-f small-p mid-pb item id="codeContainer">
 
+<span id="stu" class="hide">
 <textarea readonly big bol2 m flex small-p class="code-block" draggable="true">
 <setup>
 set.title('myApp');
@@ -115,6 +120,7 @@ ui();
 <textarea readonly bol2 m flex small-p class="code-block" draggable="true">
 <body>
 </textarea>
+</span>
   <textarea bol2 mid m flex small-p class="code-block" draggable="true">
 
 <nav no-m bbg>
@@ -132,7 +138,7 @@ ui();
 </body>
   </textarea>
   
-  <textarea readonly bol2 m mid flex small-p class="code-block" draggable="true">
+  <textarea hide bol2 m mid flex small-p class="code-block" draggable="true">
 <script src="https://ise.web.app/load.js"></script>
   </textarea>
 
