@@ -10,9 +10,10 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 <meta name="description" content="B code a Code Block for Coding Better.">
 <meta name="keywords" content="code, editor, ai">
 <link rel="canonical" href="">
-<link rel="stylesheet" href="https://ise.web.app/load.css">
+<link rel="stylesheet" href="https://actwu.github.io/neu/n.css">
 <script>
 setViewport();
+    addNeu();
 </script>
 
 <style>
@@ -37,7 +38,7 @@ place-content: center;
 
 <span lbg2 style="padding-top: 0.1in;" item small-px>
 <cont item-left mid-px>
-<p l id="output">Run to start Log.</p>
+<p m id="output">Run to start Log.</p>
 </cont>
 <span item lbg2>
 
@@ -49,11 +50,11 @@ code += block.value + '\n';
 navigator.clipboard.writeText(code).then(() => {
     alert('Code copied to clipboard!');
 });">
-<i l="fa-solid fa-lg fa-copy"></i></a>
+<i m class="fa-solid fa-lg fa-copy"></i></a>
   
 <span row lbg2 bdr="25">
 <a lbg2 onmousedown="openFile()">
-<i l class="fa-solid fa-lg fa-upload"></i></a>
+<i m class="fa-solid fa-lg fa-upload"></i></a>
 <a lbg2 onmousedown=" code = '';
 dda = code.target; 
 document.querySelectorAll('.code-block').forEach(block => {
@@ -61,14 +62,14 @@ code += block.value + '\n';
 });
 newFile({filename:`${ran(9e9)}.html`, filetype:'javascript/js', data: code})
 
-"><i l class="fa-solid fa-lg fa-cloud-download"></i></a>
+"><i m class="fa-solid fa-lg fa-cloud-download"></i></a>
 </span>
 <a lbg2
 onclick="document.querySelector('#precode').classList.toggle('hide')">
 <i l class="fa-solid fa-lg fa-code"></i></a>
 
-<a gbg onmousedown="addCode('Custom Code?')">
-<i g2 class="fa-solid fa-lg fa-add"></i></a>
+<a gbg2 onmousedown="addCode('Custom Code?')">
+<i g class="fa-solid fa-lg fa-add"></i></a>
 
 <div rbg2 small-px style="padding: 0.5em 1em;" bdr="25" id="trashcan">
 <i r class="fa-solid fa-lg fa-trash"></i>
@@ -100,7 +101,7 @@ addCode(`</span>`, `System`);">Span Ending</a>
 </cont>
 <div small-p mid-pb item id="codeContainer">
 
-<textarea big lbg2 l flex small-p class="code-block" draggable="true">
+<textarea big lbg m flex small-p class="code-block" draggable="true">
 <setup>
 set.title('myApp');
 set.info('My app');
@@ -111,27 +112,27 @@ set.icon(1);
 ui();
 </setup>
 </textarea>
-<textarea lbg2 l flex small-p class="code-block" draggable="true">
+<textarea lbg2 m flex small-p class="code-block" draggable="true">
 <body>
 </textarea>
-  <textarea lbg2  mid l flex small-p class="code-block" draggable="true">
+  <textarea lbg2  mid m flex small-p class="code-block" draggable="true">
 
 <nav no-m bbg>
 <p m> Taskbar </p>
 </nav>
   </textarea>
 
-  <textarea lbg2 l mid flex small-p class="code-block" draggable="true">
+  <textarea lbg2 m mid flex small-p class="code-block" draggable="true">
 <nav no-m bbg top>
 <p m> Topbar </p>
 </nav>
   </textarea>
 
-  <textarea lbg2 l flex small-p class="code-block" draggable="true">
+  <textarea lbg2 m flex small-p class="code-block" draggable="true">
 </body>
   </textarea>
   
-  <textarea lbg2 l mid flex small-p class="code-block" draggable="true">
+  <textarea lbg2 m mid flex small-p class="code-block" draggable="true">
 <script src="https://ise.web.app/load.js"></script>
   </textarea>
 
