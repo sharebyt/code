@@ -36,16 +36,8 @@ place-content: center;
 
 <body>
 
-<span bol style="padding-top: 0.1in;" item small-px>
-<cont item-left mid-py>
-<p m>Ise Code</p>
-<p m2>Remember this is Last to first means you code inverted.
-</p>
-    
-</cont>
-<span item >
+<nav item>
 
-<span dllist item>
 <a gbg2 onmousedown="code = ''; 
 document.querySelectorAll('.code-block').forEach(block => {
 code += block.value + '\n';
@@ -77,9 +69,6 @@ onclick="document.querySelector('#stu').classList.toggle('hide')">
 <div rbg2 mid-p hide bdr="25" id="trashcan">
 <i r class="fa-solid fa-lg fa-trash"></i>
 </div>
-</span>
-</span>
-</span>
 
 <cont class="hide" row bdr="25" id="precode">
 
@@ -102,6 +91,7 @@ addCode(`<span>`, `System`);">Span Start</a>
 addCode(`</span>`, `System`);">Span Ending</a>
 
 </cont>
+    
 <div l-f small-p mid-pb item id="codeContainer">
 
 <span id="stu" class="hide">
@@ -116,11 +106,10 @@ set.icon(1);
 ui();
 </setup>
 </textarea>
-<textarea readonly bol2 m flex small-p class="code-block" draggable="true">
+</span>
+<textarea hide readonly bol2 m flex small-p class="code-block" draggable="true">
 <body>
 </textarea>
-</span>
-  
 
   <textarea bol2 m mid flex small-p class="code-block" draggable="true">
 <nav no-m bbg>
