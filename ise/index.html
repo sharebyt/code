@@ -67,26 +67,28 @@ onclick="
 </nav>
 <span class="hide" no-m row bdr="25" id="precode">
 
-<a bdr="25" mono onmousedown="
+<a bdr="25" bbg2 mono onmousedown="
 addCode('<p> Text </p>', 'Output');">Text</a>
-<a bdr="25" mono onmousedown='
+<a bdr="25" bbg2 mono onmousedown='
 addCode(`<a onmousedown=""> 
 <p>Button</p>
 </a>`, "Output");'>Button</a>
-<a bdr="25" mono onmousedown="
+<a bdr="25" bbg2 mono onmousedown="
 addCode(`<textarea m placeholder='Textarea'></textarea>`, 'Value');">Textarea</a>
-
-<a bdr="25" mono onmousedown="
-addCode(`<cont>`, `System`);">Cont Start</a>
-<a bdr="25" mono onmousedown="
-addCode(`</cont>`, `System`);">Cont Ending</a>
-<a bdr="25" mono onmousedown="
-addCode(`<span>`, `System`);">Span Start</a>
-<a bdr="25" mono onmousedown="
-addCode(`</span>`, `System`);">Span Ending</a>
+<a bdr="25" bbg2 mono onmousedown="
+addCode(`<nav> </nav>`, `Output`);">Nav</a>
+    
+<a bdr="25" bbg2 mono onmousedown="
+addCode(`<cont>`, `System`);">Cont</a>
+<a bdr="25" bbg2 mono onmousedown="
+addCode(`</cont>`, `System`);">Cont End</a>
+<a bdr="25" bbg2 mono onmousedown="
+addCode(`<span>`, `System`);">Span</a>
+<a bdr="25" bbg2 mono onmousedown="
+addCode(`</span>`, `System`);">Span End</a>
 
 </span>
-  <screen big-mb id="viewer" class="hide" bbg></screen>  
+  <screen big-mb bi id="viewer" class="hide" bbg></screen>  
 <div l-f small-p mid-pb item id="codeContainer">
 
 <span id="stu" class="hide">
