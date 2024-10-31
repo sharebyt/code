@@ -37,12 +37,15 @@ place-content: center;
 <body>
 
 <span bol style="padding-top: 0.1in;" item small-px>
-<cont item-left mid-px>
-<p m id="output">Ise Code</p>
+<cont item-left mid-py>
+<p m>Ise Code</p>
+<p m2>Remember this is Last to first means you code inverted.
+</p>
+    
 </cont>
 <span item >
 
-<span small-p dllist item style="padding: 0.1in;" tbdr="25" bbg>
+<span dllist item>
 <a bol2 onmousedown="code = ''; 
 document.querySelectorAll('.code-block').forEach(block => {
 code += block.value + '\n';
@@ -52,7 +55,7 @@ navigator.clipboard.writeText(code).then(() => {
 });">
 <i m class="fa-solid fa-lg fa-copy"></i></a>
   
-<span row bbg2 bdr="25">
+<span bdr="25">
 <a bol2 onmousedown="openFile()">
 <i m class="fa-solid fa-lg fa-upload"></i></a>
 <a bol2 onmousedown=" code = '';
@@ -67,10 +70,6 @@ newFile({filename:`${ran(9e9)}.html`, filetype:'javascript/js', data: code})
 <a gbg
 onclick="document.querySelector('#precode').classList.toggle('hide')">
 <i m class="fa-solid fa-lg fa-shapes"></i></a>
-
-<a bbg2 onmousedown="addCode('Custom Code?')">
-<i class="fa-solid fa-lg fa-wand-magic-sparkles"></i>
-</a>
 
 <div rbg2 mid-p bdr="25" id="trashcan">
 <i r class="fa-solid fa-lg fa-trash"></i>
