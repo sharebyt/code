@@ -36,14 +36,14 @@ place-content: center;
 
 <body>
 
-<span lbg2 style="padding-top: 0.1in;" item small-px>
+<span bol style="padding-top: 0.1in;" item small-px>
 <cont item-left mid-px>
-<p m id="output">Run to start Log.</p>
+<p m id="output">Ise Code</p>
 </cont>
 <span item lbg2>
 
 <span small-p dllist item style="padding: 0.1in;" tbdr="25" bbg>
-<a lbg2 onmousedown="code = ''; 
+<a bol2 onmousedown="code = ''; 
 document.querySelectorAll('.code-block').forEach(block => {
 code += block.value + '\n';
 });
@@ -52,10 +52,10 @@ navigator.clipboard.writeText(code).then(() => {
 });">
 <i m class="fa-solid fa-lg fa-copy"></i></a>
   
-<span row lbg2 bdr="25">
-<a lbg2 onmousedown="openFile()">
+<span row bbg2 bdr="25">
+<a bol2 onmousedown="openFile()">
 <i m class="fa-solid fa-lg fa-upload"></i></a>
-<a lbg2 onmousedown=" code = '';
+<a bol2 onmousedown=" code = '';
 dda = code.target; 
 document.querySelectorAll('.code-block').forEach(block => {
 code += block.value + '\n';
@@ -64,11 +64,11 @@ newFile({filename:`${ran(9e9)}.html`, filetype:'javascript/js', data: code})
 
 "><i m class="fa-solid fa-lg fa-cloud-download"></i></a>
 </span>
-<a lbg2
+<a gbg
 onclick="document.querySelector('#precode').classList.toggle('hide')">
-<i l class="fa-solid fa-lg fa-code"></i></a>
+<i m class="fa-solid fa-lg fa-shapes"></i></a>
 
-<a gbg2 onmousedown="addCode('Custom Code?')">
+<a bbg2 onmousedown="addCode('Custom Code?')">
 <i g class="fa-solid fa-lg fa-add"></i></a>
 
 <div rbg2 small-px style="padding: 0.5em 1em;" bdr="25" id="trashcan">
@@ -80,28 +80,28 @@ onclick="document.querySelector('#precode').classList.toggle('hide')">
 
 <cont class="hide" row bdr="25" id="precode">
 
-<a bdr="25" ybg2 y mono onmousedown="
+<a bdr="25" mono onmousedown="
 addCode('<p> Text </p>', 'Output');">Text</a>
 <a bdr="25" ybg2 y mono onmousedown='
 addCode(`"<a onmousedown=""> 
 <p>Button</p>
 </a<`, "Output");'>Button</a>
-<a bdr="25" lbg2 l mono onmousedown="
+<a bdr="25" mono onmousedown="
 addCode(`<textarea m placeholder='Textarea'></textarea>`, 'Value');">Textarea</a>
 
-<a bdr="25" rbg2 r mono onmousedown="
+<a bdr="25" mono onmousedown="
 addCode(`<cont>`, `System`);">Cont Start</a>
-<a bdr="25" rbg2 r mono onmousedown="
+<a bdr="25" mono onmousedown="
 addCode(`</cont>`, `System`);">Cont Ending</a>
-<a bdr="25" rbg2 r mono onmousedown="
+<a bdr="25" mono onmousedown="
 addCode(`<span>`, `System`);">Span Start</a>
-<a bdr="25" rbg2 r mono onmousedown="
+<a bdr="25" mono onmousedown="
 addCode(`</span>`, `System`);">Span Ending</a>
 
 </cont>
 <div small-p mid-pb item id="codeContainer">
 
-<textarea big lbg m flex small-p class="code-block" draggable="true">
+<textarea big bol2 m flex small-p class="code-block" draggable="true">
 <setup>
 set.title('myApp');
 set.info('My app');
@@ -112,27 +112,27 @@ set.icon(1);
 ui();
 </setup>
 </textarea>
-<textarea lbg2 m flex small-p class="code-block" draggable="true">
+<textarea bol2 m flex small-p class="code-block" draggable="true">
 <body>
 </textarea>
-  <textarea lbg2  mid m flex small-p class="code-block" draggable="true">
+  <textarea bol2 mid m flex small-p class="code-block" draggable="true">
 
 <nav no-m bbg>
 <p m> Taskbar </p>
 </nav>
   </textarea>
 
-  <textarea lbg2 m mid flex small-p class="code-block" draggable="true">
+  <textarea bol2 m mid flex small-p class="code-block" draggable="true">
 <nav no-m bbg top>
 <p m> Topbar </p>
 </nav>
   </textarea>
 
-  <textarea lbg2 m flex small-p class="code-block" draggable="true">
+  <textarea bol2 m flex small-p class="code-block" draggable="true">
 </body>
   </textarea>
   
-  <textarea lbg2 m mid flex small-p class="code-block" draggable="true">
+  <textarea bol2 m mid flex small-p class="code-block" draggable="true">
 <script src="https://ise.web.app/load.js"></script>
   </textarea>
 
@@ -212,16 +212,16 @@ function addCode(code, type) {
 const newBlock = document.createElement('textarea');
 
 if (type == "Output" || type == 1) {
-newBlock.setAttribute('ybg2', '')
+newBlock.setAttribute('yol2', '')
 newBlock.setAttribute('y', '')
 } else if (type == "Value" || type == 2){
-newBlock.setAttribute('lbg2', '')
+newBlock.setAttribute('lol2', '')
 newBlock.setAttribute('l', '')
 } else if (type == "System"|| type == 3) {
-newBlock.setAttribute('rbg2', '')
+newBlock.setAttribute('rol2', '')
 newBlock.setAttribute('r', '')
 } else {
-newBlock.setAttribute('bbg2', '')
+newBlock.setAttribute('bol2', '')
 newBlock.setAttribute('b', '')
 }
 newBlock.setAttribute('flex', '');
