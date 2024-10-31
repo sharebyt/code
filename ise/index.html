@@ -13,23 +13,12 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://ise.web.app/load.css">
 <script>
 setViewport();
-
 </script>
 
 <style>
 textarea {
-height: 0.2in;
 width: min-content;
 min-width: min-content;
-}
-
-[dllist] a:hover, [dllist] a {
-animation: none;
-padding: 1em 1em;
-width: 1em;
-display: flex;
-justify-content: center;
-place-content: center;
 }
 </style>
 </head>
@@ -38,7 +27,7 @@ place-content: center;
 
 <nav item>
 
-<a gbg2 onmousedown="code = ''; 
+<a gbg2 small-p onmousedown="code = ''; 
 document.querySelectorAll('.code-block').forEach(block => {
 code += block.value + '\n';
 });
@@ -47,9 +36,9 @@ navigator.clipboard.writeText(code).then(() => {
 });">
 <i g class="fa-solid fa-lg fa-copy"></i></a>
   
-<a bol2 onmousedown="openFile()">
+<a bol2 small-p onmousedown="openFile()">
 <i m class="fa-solid fa-lg fa-upload"></i></a>
-<a bol2 onmousedown=" code = '';
+<a bol2 small-p onmousedown=" code = '';
 dda = code.target; 
 document.querySelectorAll('.code-block').forEach(block => {
 code += block.value + '\n';
@@ -58,11 +47,11 @@ newFile({filename:`${ran(9e9)}.html`, filetype:'javascript/js', data: code})
 
 "><i m class="fa-solid fa-lg fa-cloud-download"></i></a>
     
-<a bbg2
+<a bbg2 small-p
 onclick="document.querySelector('#precode').classList.toggle('hide')">
 <i m class="fa-solid fa-lg fa-shapes"></i></a>
 
-    <a bbg2
+    <a bbg2 small-p
 onclick="document.querySelector('#stu').classList.toggle('hide')">
 <i m class="fa-solid fa-lg fa-gear"></i></a>
 
@@ -70,7 +59,7 @@ onclick="document.querySelector('#stu').classList.toggle('hide')">
 <i r class="fa-solid fa-lg fa-trash"></i>
 </div>
 </nav>
-<cont class="hide" row bdr="25" id="precode">
+<span class="hide" no-m row bdr="25" id="precode">
 
 <a bdr="25" mono onmousedown="
 addCode('<p> Text </p>', 'Output');">Text</a>
@@ -90,7 +79,7 @@ addCode(`<span>`, `System`);">Span Start</a>
 <a bdr="25" mono onmousedown="
 addCode(`</span>`, `System`);">Span Ending</a>
 
-</cont>
+</span>
     
 <div l-f small-p mid-pb item id="codeContainer">
 
